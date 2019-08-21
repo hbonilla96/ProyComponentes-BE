@@ -15,10 +15,10 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Pin {
 
-	@Id   
-	@GeneratedValue(strategy = GenerationType.IDENTITY)   
-	private Long id; 
-	private String nombre;   
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String nombre;
 	private String descripcion;
 	private String urlImagen;
 	private String urlSitio;
