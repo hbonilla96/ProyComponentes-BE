@@ -20,6 +20,8 @@ public class Pin {
 	private Long id; 
 	private String nombre;   
 	private String descripcion;
+	private String urlImagen;
+	private String urlSitio;
 	private Long idTablero;
 	
 }
