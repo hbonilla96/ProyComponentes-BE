@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cenfotec.proyecto.domain.Tablero;
-import com.cenfotec.proyecto.repository.TableroRepository;
+import com.cenfotec.proyecto.domain.Board;
+import com.cenfotec.proyecto.repository.BoardRepository;
 
 
 @RestController 
 @RequestMapping({"/tablero"}) 
-public class TableroController {
+public class BoardController {
 
-	private TableroRepository repository;
+	private BoardRepository repository;
 
-	TableroController(TableroRepository tableroRepository) {       
+	BoardController(BoardRepository tableroRepository) {       
 		  this.repository = tableroRepository;   
 	}
 	
@@ -30,12 +30,12 @@ public class TableroController {
 	  }
 	  
 	  @GetMapping(path = {"/{id}"}) 
-	  public ResponseEntity<Tablero> findById(@PathVariable long id){   
+	  public ResponseEntity<Board> findById(@PathVariable long id){   
 		  return repository.findById(id).map(record -> ResponseEntity.ok().body(record)).orElse(ResponseEntity.notFound().build()); 
 	  }
 	  
 	  @PostMapping 
-	  public Tablero create(@RequestBody Tablero tablero){     
+	  public Board create(@RequestBody Board tablero){     
 		  return repository.save(tablero); 
 	  }
 	  

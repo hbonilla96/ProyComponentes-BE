@@ -3,9 +3,9 @@ package com.cenfotec.proyecto.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cenfotec.proyecto.domain.Tablero;
+import com.cenfotec.proyecto.domain.Board;
 
 @Repository
-public interface TableroRepository extends JpaRepository<Tablero, Long>{
+public interface BoardRepository extends JpaRepository<Board, Long>{
 
 }

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-public class Tablero {
+public class Board {
 
 	@Id   
 	@GeneratedValue(strategy = GenerationType.IDENTITY)   
