@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
@@ -15,11 +16,12 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
+@Table(name = "user")
 @Data
 @Builder
-@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements UserDetails{
 
 	@Id
@@ -27,9 +29,19 @@ public class User implements UserDetails{
 	Long id;
 
 	@NotEmpty
-	private String username;
+	private String email;
+	
 	@NotEmpty
 	private String password;
+
+	private String name;
+	
+	private String lastName;
+	
+	private String about;
+	
+	private String location;
+	
 	private Long idTablero;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
@@ -48,7 +60,7 @@ public class User implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		return this.username;
+		return this.email;
 	}
 	
 	@Override

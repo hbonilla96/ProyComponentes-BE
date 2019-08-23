@@ -1,27 +1,60 @@
 package com.cenfotec.proyecto.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
-import javax.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
+@Table(name = "pin")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Pin {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String nombre;
-	private String descripcion;
-	private String urlImagen;
-	private String urlSitio;
-	private Long idTablero;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	Long id;
+
+	@NotEmpty
+	private String name;
+
+	@NotEmpty
+	private String description;
 	
+	@NotEmpty
+	private String urlImage;
+	
+	@NotEmpty
+	private String urlSite;
+	
+	@NotEmpty
+	private Long idBoard;
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	@Builder.Default
+	private List<String> roles = new ArrayList<>();
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public String getDescription() {
+		return this.description;
+	}
+
+	public String getUrlImage() {
+		return this.urlImage;
+	}
+	
+	public String getUrlSite() {
+		return this.urlImage;
+	}
+
 }
