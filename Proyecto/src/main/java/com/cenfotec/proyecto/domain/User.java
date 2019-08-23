@@ -29,7 +29,7 @@ public class User implements UserDetails{
 	Long id;
 
 	@NotEmpty
-	private String email;
+	private String username;
 	
 	@NotEmpty
 	private String password;
@@ -60,7 +60,7 @@ public class User implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		return this.email;
+		return this.username;
 	}
 	
 	@Override

@@ -9,5 +9,5 @@ import com.cenfotec.proyecto.domain.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-	Optional<User> findByUsername(String email);
+	Optional<User> findByUsername(String username);
 }
