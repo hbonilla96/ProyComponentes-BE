@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,17 +20,15 @@ public class Board {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 
-	@NotEmpty
 	private String name;
 
-	@NotEmpty
 	private String description;
 	
-	@NotEmpty
 	private String category;
 	
-	@NotEmpty
 	private Long idPin;
+
+	private String userName;
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	@Builder.Default
@@ -47,6 +44,10 @@ public class Board {
 
 	public String getCategory() {
 		return this.category;
+	}
+	
+	public String getUserName(){
+		return this.userName;
 	}
 
 }

@@ -29,10 +29,11 @@ public class BoardController {
 		  return repository.findAll(); 
 	  }
 	  
-	  @GetMapping(path = {"/{id}"}) 
-	  public ResponseEntity<Board> findById(@PathVariable long id){   
-		  return repository.findById(id).map(record -> ResponseEntity.ok().body(record)).orElse(ResponseEntity.notFound().build()); 
-	  }
+	  @GetMapping(path = {"/{userName}"})
+	   public List<Board> findByUserName(@PathVariable String userName){
+	       List<Board> division = repository.findByUserName(userName);
+		        return division;
+	  }	
 	  
 	  @PostMapping 
 	  public Board create(@RequestBody Board tablero){     
