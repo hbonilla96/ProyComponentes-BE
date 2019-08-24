@@ -2,7 +2,9 @@ package com.cenfotec.proyecto.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,9 @@ public class UserController {
 
 	private UserRepository repository;
 	
+    @Autowired
+    PasswordEncoder passwordEncoder;
+    
 	public UserController(UserRepository userRepository) {
 		this.repository = userRepository;
 	}
@@ -36,7 +41,12 @@ public class UserController {
 	
 	@PostMapping
 	public User create(@RequestBody User user){
-		return repository.save(user);
+		
+		return repository.save(user.builder()
+				.username(user.getUsername())
+				.password(this.passwordEncoder.encode(user.getPassword()))
+				.build()
+				);
 	}
 	
 	@PutMapping(value="/{id}")
