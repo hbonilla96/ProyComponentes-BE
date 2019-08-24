@@ -2,6 +2,7 @@ package com.cenfotec.proyecto.controllers;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import com.cenfotec.proyecto.domain.Pin;
 import com.cenfotec.proyecto.repository.PinRepository;
 
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController 
 @RequestMapping({"/pin"}) 
 public class PinController {
