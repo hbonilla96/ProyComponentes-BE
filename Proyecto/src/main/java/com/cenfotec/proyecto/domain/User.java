@@ -28,10 +28,8 @@ public class User implements UserDetails{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 
-	@NotEmpty
 	private String username;
 	
-	@NotEmpty
 	private String password;
 
 	private String name;
