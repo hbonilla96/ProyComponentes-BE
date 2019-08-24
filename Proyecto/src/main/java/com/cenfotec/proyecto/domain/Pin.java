@@ -22,24 +22,15 @@ public class Pin {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 
-	@NotEmpty
 	private String name;
 
-	@NotEmpty
 	private String description;
-	
-	@NotEmpty
-	private String urlImage;
-	
-	@NotEmpty
-	private String urlSite;
-	
-	@NotEmpty
-	private Long idBoard;
 
-	@ElementCollection(fetch = FetchType.EAGER)
-	@Builder.Default
-	private List<String> roles = new ArrayList<>();
+	private String urlImage;
+
+	private String urlSite;
+
+	private Long idBoard;
 	
 	public String getName() {
 		return this.name;

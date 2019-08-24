@@ -2,7 +2,6 @@ package com.cenfotec.proyecto.controllers;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +14,7 @@ import com.cenfotec.proyecto.repository.BoardRepository;
 
 
 @RestController 
-@RequestMapping({"/tablero"}) 
+@RequestMapping({"/board"}) 
 public class BoardController {
 
 	private BoardRepository repository;

@@ -29,10 +29,6 @@ public class Board {
 	private Long idPin;
 
 	private String userName;
-
-	@ElementCollection(fetch = FetchType.EAGER)
-	@Builder.Default
-	private List<String> roles = new ArrayList<>();
 	
 	public String getName() {
 		return this.name;
